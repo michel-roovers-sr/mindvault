@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <item>
+      <path>About Mindvault</path>
+      <mode>howto</mode>
+      <value>
+        <step>
+          <tag>About Mindvault</tag>
+          <what>About Mindvault</what>
+          <why>I created Mindvault for macOS because I want to have information at hand</why>
+          <how>The first Mindvault application was created as a Microsoft WinForm application. After switching to a MacBook I discoverd I couldn't use the dotNET Mindvault anymore.
+
+My options were:
+ - Port Mindvault to use WPF and Mono on my mac
+ - Create a native macOS application from scratch
+
+I decided to do the last.
+
+Feel free to adapt Mindvault to your personal needs</how>
+        </step>
+        <step>
+          <tag>Change list</tag>
+          <what>Lists the changes to Mindvault</what>
+          <why>It's good practice to log the changes between versions</why>
+          <how>version	What has changed
+              
+1.0.0	Initial release to GitHub</how>
+        </step>
+        <step>
+            <tag>Planned for next releases</tag>
+            <what>Lists whats planned for Mindvault</what>
+            <why>It's good practice to log what's nice to have in future versions</why>
+            <how>Ability to store sensitive data as a vault item</how>
+        </step>
+        <step>
+          <tag>Vault entries</tag>
+          <what>Create/maintaining Mind vault entries</what>
+          <why>Mind vault items are stored in files</why>
+          <how>Vault items consist of xml-files.
+The next steps Show how to create/maintain vault items</how>
+        </step>
+        <step>
+          <tag>Items location</tag>
+          <what>Location of the Mind vault items</what>
+          <why>Mind vault reads the items from the file system at startup or reload.
+          
+          You'll have to know this location in order to add items to your vault</why>
+          <how>/Users/&lt;you&gt;/.mindvault</how>
+        </step>
+        <step>
+          <tag>Structure</tag>
+          <what>Structure of a Mind vault item</what>
+          <why>You'll need to create/edit your'e Mind vault item files for now</why>
+          <how>Mind vault item files are xml files with the following structure:
+          
+      &lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;configuration&gt;
+        &lt;item&gt;
+          &lt;path&gt;&lt;/path&gt;
+          &lt;mode&gt;&lt;/mode&gt;
+          &lt;value&gt;&lt;/value&gt;
+        &lt;/item&gt;
+      &lt;/configuration&gt;</how>
+        </step>
+        <step>
+          <tag>The path</tag>
+          <what>Define the path</what>
+          <why>The defined path is used to build Mind vault's menu</why>
+          <how>The path is split into separate elements on the dot (.) sign.
+
+          The first element is the item in the main menu.
+          The second element is a sub menu item of the first one
+          and so one
+          
+          Example: &lt;path&gt;Mind.vault.How to&lt;/path&gt; constructs the following menu
+          
+          Mind
+            - vault
+                - How to
+          </how>
+        </step>
+        <step>
+          <tag>The menu</tag>
+          <what>mindvault's menu</what>
+          <why>Shows you how the menu looks like</why>
+          <how>Alfabethical menu items for each item in your mind vault
+      ------
+      Reload
+      Quit</how>
+        </step>
+        <step>
+          <tag>Node types</tag>
+          <what>Define the mode</what>
+          <why>The mode defines what operations are executed when selecting the item</why>
+          <how>Possible mode values are:
+
+      pasteBoard	copies the value to the pasteBoard
+      dialog	shows the value in a dialog window
+      table	shows the value in a table window
+      tableFile	shows the file defined in the value in a table window
+      howto	shows the value items in a howto window
+      howtoFile	shows the file defined in the value in a howto window</how>
+        </step>
+        <step>
+          <tag>Copy to pasteBoard</tag>
+          <what>How to create an pasteBoard entry</what>
+          <why>When you select the item, it's value
+      will be copied to the pasteBoard</why>
+          <how>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;configuration&gt;
+        &lt;item&gt;
+          &lt;path&gt;&lt;/path&gt;
+          &lt;mode&gt;pasteBoard&lt;/mode&gt;
+          &lt;value&gt;Enter some value here&lt;/value&gt;
+        &lt;/item&gt;
+      &lt;/configuration&gt;</how>
+        </step>
+        <step>
+          <tag>Show dialog</tag>
+          <what>How to create an dialog window entry</what>
+          <why>When you select the item, it's value
+      will be shown in a window</why>
+          <how>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;configuration&gt;
+        &lt;item&gt;
+          &lt;path&gt;&lt;/path&gt;
+          &lt;mode&gt;dialog&lt;/mode&gt;
+          &lt;value&gt;Enter some value here&lt;/value&gt;
+        &lt;/item&gt;
+      &lt;/configuration&gt;</how>
+        </step>
+        <step>
+          <tag>Show table</tag>
+          <what>How to create an table window entry</what>
+          <why>When you select the item, it's value
+      will be shown in a table window</why>
+          <how>The definition has an additional header field.
+      You enter tab delimited header texts here.
+
+      For each row in the table you enter a tab delimited line in the value field
+
+      &lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;configuration&gt;
+        &lt;item&gt;
+          &lt;path&gt;&lt;/path&gt;
+          &lt;mode&gt;table&lt;/mode&gt;
+          &lt;header&gt;&lt;/header&gt;
+          &lt;value&gt;&lt;/value&gt;
+        &lt;/item&gt;
+      &lt;/configuration&gt;</how>
+        </step>
+        <step>
+          <tag>Use table file</tag>
+          <what>How to create an table window entry</what>
+          <why>When you select the item, the file defined in the value
+      will be shown in a table window</why>
+          <how>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;configuration&gt;
+        &lt;item&gt;
+          &lt;path&gt;&lt;/path&gt;
+          &lt;mode&gt;tableFile&lt;/mode&gt;
+          &lt;value&gt;Enter a relative file and path here&lt;/value&gt;
+        &lt;/item&gt;
+      &lt;/configuration&gt;
+
+      Note: the table file follows the convention of a table
+      The advantage is that you can change its contents without reloading you mindvault</how>
+        </step>
+        <step>
+          <tag>Show how to's</tag>
+          <what>How to create an howto window entry</what>
+          <why>When you select the item, it's value
+      will be shown in a howto window</why>
+          <how>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;configuration&gt;
+        &lt;item&gt;
+          &lt;path&gt;&lt;/path&gt;
+          &lt;mode&gt;howto&lt;/mode&gt;
+          &lt;value&gt;
+            &lt;step&gt;
+              &lt;tag&lt;Enter small description tag&lt;/tag&gt;
+              &lt;what&lt;Enter what the step wants to achieve&lt;/what&gt;
+              &lt;why&gt;Enter the reason for this goal&lt;/why&gt;
+              &lt;how&gt;Enter how to do it&lt;/how&gt;
+            &lt;/step&gt;
+          &lt;/value&gt;
+        &lt;/item&gt;
+      &lt;/configuration&gt;</how>
+        </step>
+        <step>
+          <tag>Use howto file</tag>
+          <what>How to create an howto window entry, loaded from a separate file</what>
+          <why>When you select the item, the file defined in the value
+      will be shown in a howto window</why>
+          <how>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;configuration&gt;
+        &lt;item&gt;
+          &lt;path&gt;&lt;/path&gt;
+          &lt;mode&gt;howtoFile&lt;/mode&gt;
+          &lt;value&gt;Enter a relative file and path here&lt;/value&gt;
+        &lt;/item&gt;
+      &lt;/configuration&gt;
+
+      Note: the structure of the howto file is a bit differen (see below)
+      The advantage is that you can change its contents without reloading you mindvault
+
+      &lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;configuration&gt;
+        &lt;meta&gt;
+          &lt;item&gt;
+            &lt;path&gt;&lt;/path&gt;
+            &lt;mode&gt;howto&lt;/mode&gt;
+            &lt;value&gt;&lt;/value&gt;
+          &lt;/item&gt;
+        &lt;/meta&gt;
+        &lt;step&gt;
+          &lt;tag&lt;Enter small description tag&lt;/tag&gt;
+          &lt;what&lt;Enter what the step wants to achieve&lt;/what&gt;
+          &lt;why&gt;Enter the reason for this goal&lt;/why&gt;
+          &lt;how&gt;Enter how to do it&lt;/how&gt;
+        &lt;/step&gt;
+      &lt;/configuration&gt;</how>
+        </step>
+        <step>
+          <tag></tag>
+          <what></what>
+          <why></why>
+          <how></how>
+        </step>
+      </value>
+  </item>
+</configuration>
