@@ -12,7 +12,8 @@ class VaultItem: NSObject {
     var path : String = ""
     var value: String = ""
     var mode: eVaultMode = eVaultMode.pasteBoard
-    var header = ""
+    var header: String  = ""
+    var tableData: String = ""
     var valueNode: XMLNode = XMLNode(kind: XMLNode.Kind.comment)
     var howtoSteps = Array<HowtoStep>()
     
@@ -131,7 +132,7 @@ class VaultItem: NSObject {
         }
         
         var index : Int = 0
-        for rows in self.value.components(separatedBy: "\n") {
+        for rows in self.tableData.components(separatedBy: "\n") {
             var cells = [String]()
             for cell in rows.components(separatedBy: "\t") {
                 cells.append((cell))
@@ -151,7 +152,7 @@ class VaultItem: NSObject {
             let doc = try XMLDocument(contentsOf: url, options: XMLNode.Options.nodePreserveAll)
             for node in (doc.rootElement()?.children!)! {
                 if node.name == "value" {
-                    value = node.stringValue!
+                    tableData = node.stringValue!
                 }
                 if node.name == "header" {
                     header = node.stringValue!
