@@ -25,6 +25,16 @@ class VaultTextViewController: NSViewController {
             self.keyDown(with: $0)
             return $0
         }
+        
+        //  get previous and adjust current font size
+        let fontsize = Float(vaultText.font?.pointSize ?? 10.0)
+        
+        let defaults = UserDefaults.standard
+        let prev_size = defaults.float(forKey: "font_size")
+        
+        let increment = prev_size - fontsize;
+        changeFontSize(increment: CGFloat(increment))
+
     }
     
     func attachVaultItem(item: VaultItem) {
@@ -49,9 +59,14 @@ class VaultTextViewController: NSViewController {
 
     func changeFontSize(increment: CGFloat)
     {
-        if( (vaultText.font?.pointSize)! + increment > CGFloat(10.0)) {
-            vaultText.font = NSFont.init(name: (vaultText.font?.fontName)!, size: (vaultText.font?.pointSize)! + increment)
-        }
+        let fontsize = vaultText.font?.pointSize
+        if( fontsize! + increment > CGFloat(10.0)) {
+            vaultText.font = NSFont.init(name: (vaultText.font?.fontName)!, size: fontsize! + increment)
+            
+            let defaults = UserDefaults.standard
+            defaults.set(fontsize! + increment, forKey: "font_size")
+            
+       }
     }
 
 }

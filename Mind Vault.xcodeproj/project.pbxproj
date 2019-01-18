@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F10587DD20371335009EBDA8 /* VaultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10587DC20371335009EBDA8 /* VaultItem.swift */; };
+		F13ED0542126FD3E007AA9BB /* howto-use-mindvault.xml in Resources */ = {isa = PBXBuildFile; fileRef = F13ED0532126FA41007AA9BB /* howto-use-mindvault.xml */; };
+		F145B15F202597230050A05A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145B15E202597230050A05A /* AppDelegate.swift */; };
+		F145B163202597230050A05A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F145B162202597230050A05A /* Assets.xcassets */; };
+		F145B166202597230050A05A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F145B164202597230050A05A /* Main.storyboard */; };
+		F1521C6520EF99E500BA507E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1521C6420EF99E500BA507E /* Cocoa.framework */; };
+		F159E6122046DFD8002EE675 /* VaultTextWindowControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F159E6112046DFD8002EE675 /* VaultTextWindowControler.swift */; };
+		F1CC2EE6205BBB5C004BF974 /* VaultHowtoWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CC2EE5205BBB5C004BF974 /* VaultHowtoWindowController.swift */; };
+		F1CC2EE8205BBFE9004BF974 /* VaultHowtoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CC2EE7205BBFE9004BF974 /* VaultHowtoViewController.swift */; };
+		F1CC2EEA205BE3A3004BF974 /* HowtoStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CC2EE9205BE3A3004BF974 /* HowtoStep.swift */; };
+		F1D2FA312049902E001CAF6E /* VaultTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2FA302049902E001CAF6E /* VaultTextViewController.swift */; };
+		F1D2FA382049A0CA001CAF6E /* VaultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2FA362049A0CA001CAF6E /* VaultTableViewController.swift */; };
+		F1D2FA3C2049A29A001CAF6E /* VaultTableWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2FA3A2049A29A001CAF6E /* VaultTableWindowController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F1521C6120EF98A600BA507E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LogItems;
+			dstSubfolderSpec = 1;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F10587DC20371335009EBDA8 /* VaultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultItem.swift; sourceTree = "<group>"; };
+		F13ED0532126FA41007AA9BB /* howto-use-mindvault.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "howto-use-mindvault.xml"; sourceTree = "<group>"; };
+		F145B15B202597230050A05A /* Mind Vault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mind Vault.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F145B15E202597230050A05A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F145B162202597230050A05A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F145B165202597230050A05A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F145B167202597230050A05A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F145B168202597230050A05A /* Mind_Vault.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mind_Vault.entitlements; sourceTree = "<group>"; };
+		F1521C5C20EF903000BA507E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1521C6420EF99E500BA507E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		F159E6112046DFD8002EE675 /* VaultTextWindowControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultTextWindowControler.swift; sourceTree = "<group>"; };
+		F1CC2EE5205BBB5C004BF974 /* VaultHowtoWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultHowtoWindowController.swift; sourceTree = "<group>"; };
+		F1CC2EE7205BBFE9004BF974 /* VaultHowtoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultHowtoViewController.swift; sourceTree = "<group>"; };
+		F1CC2EE9205BE3A3004BF974 /* HowtoStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowtoStep.swift; sourceTree = "<group>"; };
+		F1D2FA302049902E001CAF6E /* VaultTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultTextViewController.swift; sourceTree = "<group>"; };
+		F1D2FA362049A0CA001CAF6E /* VaultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultTableViewController.swift; sourceTree = "<group>"; };
+		F1D2FA3A2049A29A001CAF6E /* VaultTableWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultTableWindowController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F145B158202597230050A05A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1521C6520EF99E500BA507E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F145B152202597230050A05A = {
+			isa = PBXGroup;
+			children = (
+				F145B15D202597230050A05A /* Mind Vault */,
+				F1521C5C20EF903000BA507E /* Info.plist */,
+				F145B15C202597230050A05A /* Products */,
+				F1521C6320EF99E400BA507E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F145B15C202597230050A05A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F145B15B202597230050A05A /* Mind Vault.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F145B15D202597230050A05A /* Mind Vault */ = {
+			isa = PBXGroup;
+			children = (
+				F13ED0532126FA41007AA9BB /* howto-use-mindvault.xml */,
+				F145B15E202597230050A05A /* AppDelegate.swift */,
+				F1D2FA302049902E001CAF6E /* VaultTextViewController.swift */,
+				F1D2FA362049A0CA001CAF6E /* VaultTableViewController.swift */,
+				F1CC2EE7205BBFE9004BF974 /* VaultHowtoViewController.swift */,
+				F159E6112046DFD8002EE675 /* VaultTextWindowControler.swift */,
+				F1D2FA3A2049A29A001CAF6E /* VaultTableWindowController.swift */,
+				F1CC2EE5205BBB5C004BF974 /* VaultHowtoWindowController.swift */,
+				F10587DC20371335009EBDA8 /* VaultItem.swift */,
+				F1CC2EE9205BE3A3004BF974 /* HowtoStep.swift */,
+				F145B162202597230050A05A /* Assets.xcassets */,
+				F145B164202597230050A05A /* Main.storyboard */,
+				F145B167202597230050A05A /* Info.plist */,
+				F145B168202597230050A05A /* Mind_Vault.entitlements */,
+			);
+			path = "Mind Vault";
+			sourceTree = "<group>";
+		};
+		F1521C6320EF99E400BA507E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1521C6420EF99E500BA507E /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F145B15A202597230050A05A /* Mind Vault */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F145B16B202597230050A05A /* Build configuration list for PBXNativeTarget "Mind Vault" */;
+			buildPhases = (
+				F145B157202597230050A05A /* Sources */,
+				F145B158202597230050A05A /* Frameworks */,
+				F145B159202597230050A05A /* Resources */,
+				F1521C6120EF98A600BA507E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mind Vault";
+			productName = "Mind Vault";
+			productReference = F145B15B202597230050A05A /* Mind Vault.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F145B153202597230050A05A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Michel Roovers";
+				TargetAttributes = {
+					F145B15A202597230050A05A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F145B156202597230050A05A /* Build configuration list for PBXProject "Mind Vault" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F145B152202597230050A05A;
+			productRefGroup = F145B15C202597230050A05A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F145B15A202597230050A05A /* Mind Vault */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F145B159202597230050A05A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F13ED0542126FD3E007AA9BB /* howto-use-mindvault.xml in Resources */,
+				F145B163202597230050A05A /* Assets.xcassets in Resources */,
+				F145B166202597230050A05A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F145B157202597230050A05A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1CC2EE6205BBB5C004BF974 /* VaultHowtoWindowController.swift in Sources */,
+				F1D2FA382049A0CA001CAF6E /* VaultTableViewController.swift in Sources */,
+				F1D2FA312049902E001CAF6E /* VaultTextViewController.swift in Sources */,
+				F10587DD20371335009EBDA8 /* VaultItem.swift in Sources */,
+				F159E6122046DFD8002EE675 /* VaultTextWindowControler.swift in Sources */,
+				F1CC2EE8205BBFE9004BF974 /* VaultHowtoViewController.swift in Sources */,
+				F1CC2EEA205BE3A3004BF974 /* HowtoStep.swift in Sources */,
+				F145B15F202597230050A05A /* AppDelegate.swift in Sources */,
+				F1D2FA3C2049A29A001CAF6E /* VaultTableWindowController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F145B164202597230050A05A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F145B165202597230050A05A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F145B169202597230050A05A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F145B16A202597230050A05A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		F145B16C202597230050A05A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Mind Vault/Mind_Vault.entitlements";
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5JN4GYQGQW;
+				INFOPLIST_FILE = "Mind Vault/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "fam-roovers.Mind-Vault";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		F145B16D202597230050A05A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Mind Vault/Mind_Vault.entitlements";
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5JN4GYQGQW;
+				INFOPLIST_FILE = "Mind Vault/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "fam-roovers.Mind-Vault";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F145B156202597230050A05A /* Build configuration list for PBXProject "Mind Vault" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F145B169202597230050A05A /* Debug */,
+				F145B16A202597230050A05A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F145B16B202597230050A05A /* Build configuration list for PBXNativeTarget "Mind Vault" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F145B16C202597230050A05A /* Debug */,
+				F145B16D202597230050A05A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F145B153202597230050A05A /* Project object */;
+}

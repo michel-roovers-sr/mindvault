@@ -78,6 +78,15 @@ class VaultHowtoViewController: NSViewController, NSComboBoxDelegate {
 
         howtoTags.delegate = self
         
+        //  get previous and adjust current font size
+        let fontsize = Float(whatText.font?.pointSize ?? 10.0)
+
+        let defaults = UserDefaults.standard
+        let prev_size = defaults.float(forKey: "font_size")
+        
+        let increment = prev_size - fontsize;
+        changeFontSize(increment: CGFloat(increment))
+        
     }
     
     func showStep() {
@@ -124,6 +133,9 @@ class VaultHowtoViewController: NSViewController, NSComboBoxDelegate {
             whatText.font = NSFont.init(name: fontname!, size: fontsize! + increment)
             whyText.font = NSFont.init(name: fontname!, size: fontsize! + increment)
             howText.font = NSFont.init(name: fontname!, size: fontsize! + increment)
+            
+            let defaults = UserDefaults.standard
+            defaults.set(fontsize! + increment, forKey: "font_size")
             
         }
     }

@@ -22,6 +22,13 @@ class VaultTableViewController: NSViewController, NSTableViewDataSource, NSTable
             self.keyDown(with: $0)
             return $0
         }
+        
+        //  get previous and adjust current font size
+        let defaults = UserDefaults.standard
+        let prev_size = defaults.float(forKey: "font_size")
+        if prev_size > 0 {
+            fontSize = CGFloat(prev_size)
+        }
     }
     
     func attachVaultItem(item: VaultItem) {
@@ -39,7 +46,7 @@ class VaultTableViewController: NSViewController, NSTableViewDataSource, NSTable
         vaultTable.removeTableColumn(vaultTable.tableColumns[0])
         
         vaultTable.reloadData()
-        
+
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -93,6 +100,9 @@ class VaultTableViewController: NSViewController, NSTableViewDataSource, NSTable
 
                 }
             }
+            
+            let defaults = UserDefaults.standard
+            defaults.set(fontSize, forKey: "font_size")
             
             let rowHeight = vaultTable.rowHeight
             if(rowHeight + increment > CGFloat(17.0)) {
