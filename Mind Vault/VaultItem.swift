@@ -19,7 +19,7 @@ class VaultItem: NSObject {
     
     var filePath : String = ""
     
-    enum eVaultMode { case pasteBoard, dialog, table, tableFile, howto, howtoFile }
+    enum eVaultMode { case none, pasteBoard, dialog, table, tableFile, howto, howtoFile }
     
     override init() {
         filePath = NSHomeDirectory() + "/.mindvault/"
@@ -62,7 +62,7 @@ class VaultItem: NSObject {
         var nodePath : String = ""
         var nodeValue : String = ""
         var nodeHeader : String = ""
-        var mode = eVaultMode.pasteBoard
+        var mode = eVaultMode.none
         var valueNode : XMLNode = node
         
         for child in node.children! {
@@ -85,8 +85,10 @@ class VaultItem: NSObject {
                     mode = eVaultMode.howto
                 case "howtoFile"?:
                     mode = eVaultMode.howtoFile
-                default:
+                case "pasteBoard"?:
                     mode = eVaultMode.pasteBoard
+                default:
+                    mode = eVaultMode.none
                 }
             }
             if child.name == "header" {

@@ -82,7 +82,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     /*!
-     This method creates a tow dimensional meni from the vault items
+     This method creates a two dimensional menu from the vault items
     */
     func  createMenu() -> NSMenu {
         let menu = NSMenu()
@@ -96,6 +96,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     newItem = getMenuItem(title: elem, menu: menu)
                     if newItem == nil {
                         newItem = NSMenuItem(title: elem, action: nil, keyEquivalent: "")
+                        
                         menu.addItem( newItem!)
                     }
                     menuItem = newItem
@@ -106,7 +107,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     
                     if newItem == nil {
                         newItem = NSMenuItem(title: elem, action: nil, keyEquivalent: "")
-                        
+
                         if menuItem?.hasSubmenu == false {
                             menuItem?.submenu = NSMenu()
                         }
@@ -121,6 +122,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if newItem != nil {
                 newItem?.tag = vaultItems.index(of: item)!
                 newItem?.action = #selector(action1(_:))
+                
+                if item.mode == VaultItem.eVaultMode.pasteBoard {
+                    newItem?.image = NSImage(named: NSImage.Name(rawValue: "clipboard"))
+                }
             }
         }
         
@@ -164,7 +169,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let item: VaultItem = vaultItems[menuItem.tag]
         
         switch item.mode {
-        case VaultItem.eVaultMode.pasteBoard:
+        case VaultItem.eVaultMode.none, VaultItem.eVaultMode.pasteBoard:
             copyToPasteboard(text: item.value)
 
         case VaultItem.eVaultMode.dialog:
