@@ -19,7 +19,7 @@ class VaultItem: NSObject {
     
     var filePath : String = ""
     
-    enum eVaultMode { case none, pasteBoard, dialog, table, tableFile, howto, howtoFile }
+    enum eVaultMode { case none, pasteBoard, dialog, table, tableFile, howto, howtoFile, pictureFile }
     
     override init() {
         filePath = NSHomeDirectory() + "/.mindvault/"
@@ -85,6 +85,8 @@ class VaultItem: NSObject {
                     mode = eVaultMode.howto
                 case "howtoFile"?:
                     mode = eVaultMode.howtoFile
+                case "pictureFile"?:
+                    mode = eVaultMode.pictureFile
                 case "pasteBoard"?:
                     mode = eVaultMode.pasteBoard
                 default:

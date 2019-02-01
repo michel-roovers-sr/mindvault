@@ -12,7 +12,11 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-
+    let windowsMenu = NSMenuItem(title: "Windows", action: nil, keyEquivalent: "")
+    
+    var openWindows: [Int: NSWindowController] = [:]
+    var openedWindows: Int = 1
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
         loadVault()
@@ -130,7 +134,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Reload", action: #selector(reloadAction(_:)), keyEquivalent: "r"))
+        
+        let mindvaultMenu = NSMenuItem(title: "Mindvault", action: nil, keyEquivalent: "")
+        mindvaultMenu.submenu = NSMenu()
+        mindvaultMenu.submenu?.addItem(NSMenuItem(title: "Reload", action: #selector(reloadAction(_:)), keyEquivalent: "r"))
+        mindvaultMenu.submenu?.addItem(NSMenuItem.separator())
+        
+        windowsMenu.submenu = NSMenu()
+        
+        mindvaultMenu.submenu?.addItem(windowsMenu)
+
+        menu.addItem(mindvaultMenu)
+        
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(exitAction(_:)), keyEquivalent: "k"))
         
         return menu
@@ -179,7 +194,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             wc.showWindow(self)
             wc.attachValueItem(item: item)
             NSApp.activate(ignoringOtherApps: true)
-
+            
+            addWindowToMenu(title: item.name(), wc: wc)
+            
         case VaultItem.eVaultMode.table, VaultItem.eVaultMode.tableFile:
             NSLog("open tableFile")
             let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
@@ -187,7 +204,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             wc.showWindow(self)
             wc.attachValueItem(item: item)
             NSApp.activate(ignoringOtherApps: true)
-            
+
+            addWindowToMenu(title: item.name(), wc: wc)
+
         case VaultItem.eVaultMode.howto, VaultItem.eVaultMode.howtoFile:
             NSLog("open howtoFile")
             let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
@@ -196,6 +215,60 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             wc.attachValueItem(item: item)
             NSApp.activate(ignoringOtherApps: true)
 
+            addWindowToMenu(title: item.name(), wc: wc)
+
+        case .pictureFile:
+            NSLog("open pictureFile")
+        }
+    }
+    
+    func addWindowToMenu(title: String, wc: NSWindowController) {
+        
+        let windowItem = NSMenuItem(title: title, action: #selector(showWindowAction(_:)), keyEquivalent: "")
+        windowItem.tag = openedWindows
+        
+        let closeWindowItem = NSMenuItem(title: "close", action: #selector(closeWindowAction(_:)), keyEquivalent: "")
+        closeWindowItem.tag = openedWindows
+        
+        windowItem.submenu = NSMenu()
+        windowItem.submenu?.addItem(closeWindowItem)
+
+        openWindows[openedWindows] = wc
+        openedWindows = openedWindows + 1
+        windowsMenu.submenu?.insertItem(windowItem, at: 0)
+        
+    }
+    
+    func windowWillClose(_ sender: NSWindow) {
+        for (key, wc) in openWindows {
+            if wc.window == sender {
+                for mnuItem in (windowsMenu.submenu?.items)! {
+                    if mnuItem.tag == key {
+                        openWindows.removeValue(forKey: key)
+                        windowsMenu.submenu!.removeItem(mnuItem)
+                        
+                        return
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    @objc func showWindowAction(_ sender: Any?) {
+        let menuItem : NSMenuItem = sender as! NSMenuItem
+        if let wc: NSWindowController = openWindows[menuItem.tag] {
+            
+            wc.showWindow(self)
+            NSApp.activate(ignoringOtherApps: true)
+        }
+    }
+    
+    @objc func closeWindowAction(_ sender: Any?) {
+        let menuItem : NSMenuItem = sender as! NSMenuItem
+        if let wc: NSWindowController = openWindows[menuItem.tag] {
+            
+            wc.close()
         }
     }
     

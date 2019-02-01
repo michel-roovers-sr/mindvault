@@ -48,6 +48,13 @@ class VaultHowtoViewController: NSViewController, NSComboBoxDelegate {
         }
     }
     
+    override func viewWillDisappear() {
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        appDelegate.windowWillClose(self.view.window!)
+
+        super.viewWillDisappear()
+    }
+    
     func comboBoxSelectionDidChange(_ notification: Notification) {
         step = self.howtoTags.indexOfSelectedItem + 1
         showStep()

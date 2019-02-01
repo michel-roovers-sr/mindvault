@@ -73,6 +73,13 @@ class VaultTableViewController: NSViewController, NSTableViewDataSource, NSTable
         
     }
     
+    override func viewWillDisappear() {
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        appDelegate.windowWillClose(self.view.window!)
+        
+        super.viewWillDisappear()
+    }
+    
     override func keyDown(with event: NSEvent) {
         if UInt(event.modifierFlags.rawValue) & UInt(NSEvent.ModifierFlags.command.rawValue) == UInt(NSEvent.ModifierFlags.command.rawValue) {
             if( event.keyCode == 69 || event.keyCode == 24 ){
