@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class VaultTableViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+class VaultTableViewController: MVViewController, NSTableViewDataSource, NSTableViewDelegate {
 
     var vaultItem: VaultItem = VaultItem()
     var fontSize: CGFloat = CGFloat(10.0)
@@ -16,18 +16,43 @@ class VaultTableViewController: NSViewController, NSTableViewDataSource, NSTable
     @IBOutlet weak var vaultTableHeader: NSTableHeaderView!
     @IBOutlet weak var vaultTable: NSTableView!
     override func viewDidLoad() {
+        name = "table-view"
         super.viewDidLoad()
 
-        NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyDown) {
-            self.keyDown(with: $0)
-            return $0
-        }
-        
         //  get previous and adjust current font size
         let defaults = UserDefaults.standard
         let prev_size = defaults.float(forKey: "font_size")
         if prev_size > 0 {
             fontSize = CGFloat(prev_size)
+        }
+    }
+    
+    override func getFontSize() -> CGFloat {
+        return fontSize
+    }
+    
+    override func setFontSize(newSize: CGFloat) {
+        let increment = newSize - fontSize
+        for column in 0..<vaultTable.numberOfColumns {
+            for row in (0..<vaultTable.numberOfRows) {
+                let view = vaultTable.view(atColumn: column, row: row, makeIfNecessary: false) as! NSTextView
+                let fontsize = view.font?.pointSize
+                let fontname = view.font?.fontName
+                if(fontsize! + increment > CGFloat(10.0)) {
+                    fontSize = fontsize! + increment
+                    view.font = NSFont.init(name: (fontname)!, size: fontSize)
+                    view.sizeToFit()
+                    
+                }
+            }
+            
+            let defaults = UserDefaults.standard
+            defaults.set(fontSize, forKey: "font_size")
+            
+            let rowHeight = vaultTable.rowHeight
+            if(rowHeight + increment > CGFloat(17.0)) {
+                vaultTable.rowHeight = rowHeight + increment
+            }
         }
     }
     
@@ -71,51 +96,6 @@ class VaultTableViewController: NSViewController, NSTableViewDataSource, NSTable
         
         return cell
         
-    }
-    
-    override func viewWillDisappear() {
-        let appDelegate = NSApplication.shared.delegate as! AppDelegate
-        appDelegate.windowWillClose(self.view.window!)
-        
-        super.viewWillDisappear()
-    }
-    
-    override func keyDown(with event: NSEvent) {
-        if UInt(event.modifierFlags.rawValue) & UInt(NSEvent.ModifierFlags.command.rawValue) == UInt(NSEvent.ModifierFlags.command.rawValue) {
-            if( event.keyCode == 69 || event.keyCode == 24 ){
-                // <command> + <+>
-                changeFontSize(increment: 1.0)
-            }
-            if( event.keyCode == 78 || event.keyCode == 27 ){
-                // <command> + <->
-                changeFontSize(increment: -1.0)
-            }
-        }
-    }
-    
-    func changeFontSize(increment: CGFloat)
-    {
-        for column in 0..<vaultTable.numberOfColumns {
-            for row in (0..<vaultTable.numberOfRows) {
-                let view = vaultTable.view(atColumn: column, row: row, makeIfNecessary: false) as! NSTextView
-                let fontsize = view.font?.pointSize
-                let fontname = view.font?.fontName
-                if(fontsize! + increment > CGFloat(10.0)) {
-                    fontSize = fontsize! + increment
-                    view.font = NSFont.init(name: (fontname)!, size: fontSize)
-                    view.sizeToFit()
-
-                }
-            }
-            
-            let defaults = UserDefaults.standard
-            defaults.set(fontSize, forKey: "font_size")
-            
-            let rowHeight = vaultTable.rowHeight
-            if(rowHeight + increment > CGFloat(17.0)) {
-                vaultTable.rowHeight = rowHeight + increment
-            }
-        }
     }
     
 }

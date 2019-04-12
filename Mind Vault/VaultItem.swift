@@ -162,7 +162,9 @@ class VaultItem: NSObject {
                     header = node.stringValue!
                 }
             }
-        } catch _ { }
+        } catch {
+            NSLog("Problem loading embedded resource: %@", error.localizedDescription)
+        }
     }
     
     func numberOfSteps() -> Int {
@@ -221,7 +223,9 @@ class VaultItem: NSObject {
                     }
                 }
             }
-        } catch _ { }
+        } catch {
+            NSLog("Problem loading embedded resource: %@", error.localizedDescription)
+        }
     }
     
     

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class VaultHowtoViewController: NSViewController, NSComboBoxDelegate {
+class VaultHowtoViewController: MVViewController, NSComboBoxDelegate {
     var vaultItem: VaultItem = VaultItem()
     var step: Int = 1
     var minStep = 1
@@ -48,13 +48,6 @@ class VaultHowtoViewController: NSViewController, NSComboBoxDelegate {
         }
     }
     
-    override func viewWillDisappear() {
-        let appDelegate = NSApplication.shared.delegate as! AppDelegate
-        appDelegate.windowWillClose(self.view.window!)
-
-        super.viewWillDisappear()
-    }
-    
     func comboBoxSelectionDidChange(_ notification: Notification) {
         step = self.howtoTags.indexOfSelectedItem + 1
         showStep()
@@ -75,27 +68,27 @@ class VaultHowtoViewController: NSViewController, NSComboBoxDelegate {
     }
     
     override func viewDidLoad() {
+        name = "howto-view"
         super.viewDidLoad()
         // Do view setup here.
 
-        NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyDown) {
-            self.keyDown(with: $0)
-            return $0
-        }
-
         howtoTags.delegate = self
-        
-        //  get previous and adjust current font size
-        let fontsize = Float(whatText.font?.pointSize ?? 10.0)
-
-        let defaults = UserDefaults.standard
-        let prev_size = defaults.float(forKey: "font_size")
-        
-        let increment = prev_size - fontsize;
-        changeFontSize(increment: CGFloat(increment))
         
     }
     
+    override func getFontSize() -> CGFloat {
+        return CGFloat(whatText.font?.pointSize ?? 10.0)
+    }
+    
+    override func setFontSize(newSize: CGFloat) {
+        let fontname = whatText.font?.fontName
+        
+        whatText.font = NSFont.init(name: fontname!, size: newSize)
+        whyText.font = NSFont.init(name: fontname!, size: newSize)
+        howText.font = NSFont.init(name: fontname!, size: newSize)
+        
+    }
+
     func showStep() {
         currentStep.stringValue = String(format: "%d of %d", self.step, maxStep)
         
@@ -117,34 +110,4 @@ class VaultHowtoViewController: NSViewController, NSComboBoxDelegate {
         
     }
     
-    override func keyDown(with event: NSEvent)
-    {
-        if UInt(event.modifierFlags.rawValue) & UInt(NSEvent.ModifierFlags.command.rawValue) == UInt(NSEvent.ModifierFlags.command.rawValue) {
-            if( event.keyCode == 69 || event.keyCode == 24 ){
-                // <command> + <+>
-                changeFontSize(increment: 1.0)
-            }
-            if( event.keyCode == 78 || event.keyCode == 27 ){
-                // <command> + <->
-                changeFontSize(increment: -1.0)
-            }
-        }
-    }
-    
-    func changeFontSize(increment: CGFloat)
-    {
-        let fontsize = whatText.font?.pointSize
-        if( fontsize! + increment > CGFloat(10.0)) {
-            let fontname = whatText.font?.fontName
-            
-            whatText.font = NSFont.init(name: fontname!, size: fontsize! + increment)
-            whyText.font = NSFont.init(name: fontname!, size: fontsize! + increment)
-            howText.font = NSFont.init(name: fontname!, size: fontsize! + increment)
-            
-            let defaults = UserDefaults.standard
-            defaults.set(fontsize! + increment, forKey: "font_size")
-            
-        }
-    }
-
 }
