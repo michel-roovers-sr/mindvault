@@ -32,13 +32,70 @@ class MVViewController: NSViewController {
         
     }
     
+    override func viewDidAppear() {
+        let defaults = UserDefaults.standard
+        
+        // Retieve window size and position
+        let json = defaults.string(forKey: String(format: "%@-window-rect", name))
+        if json != nil {
+            let decoder = JSONDecoder()
+            do {
+                let rect = try decoder.decode(jsonRect.self, from: json!.data(using: .utf8)!)
+//                NSLog("Window: x: %f, y: %f, width: %f, height: %f", Float(rect.origin.x), Float(rect.origin.y), Float(rect.size.width), Float(rect.size.height))
+                
+                var newRect = rect.toNSRect()
+            
+                if fitOnScreen(rect: newRect) {
+                    
+                    self.view.window?.setFrame(newRect, display: true)
+                }
+                else {
+                    
+                    newRect.origin = (self.view.window?.frame.origin)!
+                    self.view.window?.setFrame(newRect, display: true)
+                }
+            }
+            catch {
+                NSLog("Retrieve window size and position went wrong: %@", error.localizedDescription)
+            }
+        }
+    }
+    
     override func viewWillDisappear() {
         let appDelegate = NSApplication.shared.delegate as! AppDelegate
         appDelegate.windowWillClose(self.view.window!, name: name)
         
-        super.viewWillDisappear()
-    }
+        // Store the window's size and position
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
 
+        let frame: NSRect = self.view.window!.frame
+        do {
+            
+            let rect = jsonRect.fromNSRect(rect: frame)
+            let data = try encoder.encode(rect)
+            let json = String(data: data, encoding: .utf8)!
+//            NSLog(json)
+            
+            let defaults = UserDefaults.standard
+            defaults.set(json, forKey: String(format: "%@-window-rect", name))
+
+        }
+        catch {
+            NSLog("Store window's size and position went wrong")
+        }
+
+        super.viewWillDisappear()
+        
+    }
+    
+    func fitOnScreen(rect: NSRect) -> Bool {
+        let screen = NSScreen.main
+        let visibleRect = screen?.visibleFrame
+        
+        return visibleRect?.contains(rect.origin) ?? false
+    }
+    
     func getFontSize() -> CGFloat {
         return 10.0
     }

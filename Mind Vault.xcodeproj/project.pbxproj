@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1056E802272E8A300AD1095 /* PersistenceDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1056E7F2272E8A300AD1095 /* PersistenceDomain.swift */; };
 		F10587DD20371335009EBDA8 /* VaultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10587DC20371335009EBDA8 /* VaultItem.swift */; };
 		F13ED0542126FD3E007AA9BB /* howto-use-mindvault.xml in Resources */ = {isa = PBXBuildFile; fileRef = F13ED0532126FA41007AA9BB /* howto-use-mindvault.xml */; };
 		F145B15F202597230050A05A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145B15E202597230050A05A /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F1056E7F2272E8A300AD1095 /* PersistenceDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceDomain.swift; sourceTree = "<group>"; };
 		F10587DC20371335009EBDA8 /* VaultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultItem.swift; sourceTree = "<group>"; };
 		F13ED0532126FA41007AA9BB /* howto-use-mindvault.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "howto-use-mindvault.xml"; sourceTree = "<group>"; };
 		F145B15B202597230050A05A /* Mind Vault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mind Vault.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 			children = (
 				F13ED0532126FA41007AA9BB /* howto-use-mindvault.xml */,
 				F145B15E202597230050A05A /* AppDelegate.swift */,
+				F1056E7F2272E8A300AD1095 /* PersistenceDomain.swift */,
 				F1D2FA302049902E001CAF6E /* VaultTextViewController.swift */,
 				F1D2FA362049A0CA001CAF6E /* VaultTableViewController.swift */,
 				F1CC2EE7205BBFE9004BF974 /* VaultHowtoViewController.swift */,
@@ -196,6 +199,7 @@
 				F10587DD20371335009EBDA8 /* VaultItem.swift in Sources */,
 				F159E6122046DFD8002EE675 /* VaultTextWindowControler.swift in Sources */,
 				F1CC2EE8205BBFE9004BF974 /* VaultHowtoViewController.swift in Sources */,
+				F1056E802272E8A300AD1095 /* PersistenceDomain.swift in Sources */,
 				F1CC2EEA205BE3A3004BF974 /* HowtoStep.swift in Sources */,
 				F145B15F202597230050A05A /* AppDelegate.swift in Sources */,
 				F1D2FA3C2049A29A001CAF6E /* VaultTableWindowController.swift in Sources */,

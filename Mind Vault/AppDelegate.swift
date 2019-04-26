@@ -10,6 +10,15 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    func play() {
+//        do {
+//        }
+//        catch {
+//            NSLog("Encoding went wrong: @", error.localizedDescription)
+//        }
+    }
+
     class openedWindow: NSObject {
         init(title: String, wc: NSWindowController) {
             self.title = title
@@ -31,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         loadVault()
         
-//        play()
+        play()
         
     }
     
@@ -294,98 +303,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
     
-    func play() {
-        let rect = jsonRect.fromNSRect(rect: NSRect(x: CGFloat(10.0), y: CGFloat(20.0), width: CGFloat(100.0), height: CGFloat(200.0)))
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        
-        do {
-            
-            let data = try encoder.encode(rect)
-            let json = String(data: data, encoding: .utf8)!
-            NSLog(json)
-            
-            let decoder = JSONDecoder()
-            do {
-                let rect = try decoder.decode(jsonRect.self, from: json.data(using: .utf8)!)
-                NSLog("Window: x: %f, y: %f, width: %f, height: %f", Float(rect.origin.x), Float(rect.origin.y), Float(rect.size.width), Float(rect.size.height))
-            }
-            catch {
-                NSLog("Decoding went wrong")
-            }
-        }
-        catch {
-            NSLog("Encoding went wrong")
-        }
-        
-    }
-    
-    struct jsonRect: Codable {
-        var origin: jsonPoint = jsonPoint()
-        var size: jsonSize = jsonSize()
-     
-        static func fromNSRect(rect: NSRect) -> jsonRect {
-            var newRect: jsonRect = jsonRect()
-            
-            newRect.origin = jsonPoint.fromNSPoint(point: rect.origin)
-            newRect.size = jsonSize.fromNSSize(size: rect.size)
-            
-            return newRect
-        }
-        
-        func toNSRect() -> NSRect {
-            return NSRect(origin: self.origin.toNSPoint(), size: self.size.toNSSize())
-        }
-    }
-    
-    struct jsonPoint: Codable {
-        var x: Float = 0.0
-        var y: Float = 0.0
-        
-        static func fromNSPoint(point: NSPoint) -> jsonPoint {
-            var newPoint = jsonPoint()
-            
-            newPoint.x = Float(point.x)
-            newPoint.y = Float(point.y)
-            
-            return newPoint
-        }
-        
-        func toNSPoint() -> NSPoint {
-            return NSPoint(x: CGFloat(self.x), y: CGFloat(self.y))
-        }
-    }
-
-    struct jsonSize: Codable {
-        var width: Float = 0.0
-        var height: Float = 0.0
-        
-        static func fromNSSize(size: NSSize) -> jsonSize {
-            var newSize = jsonSize()
-            
-            newSize.width = Float(size.width)
-            newSize.height = Float(size.height)
-            
-            return newSize
-        }
-        
-        func toNSSize() -> NSSize {
-            return NSSize(width: CGFloat(self.width), height: CGFloat(self.height))
-        }
-    }
-    
     func windowWillClose(_ sender: NSWindow, name: String = "") {
         for (key, ow) in openWindows {
             if ow.wc.window == sender {
-//                let frame: NSRect = (wc.window?.frame)!
-//                let jsonData = try! JSONSerialization.dataWithJSONObject(
-//                    self.encodeObjectAsDictionary(frame,
-//                                                 alsoEncodeSubobjects: true, jsonCompatibleEncoding: true),
-//                                                 options: self.jsonWriteOptions)
-//
-//                let jsonRect = String(data: jsonData, encoding: NSUTF8StringEncoding)!
-//                let defaults = UserDefaults.standard
-//                defaults.set(jsonRect, forKey: String(format: "%@-window-rect", name))
 
                 for mnuItem in (windowsMenu.submenu?.items)! {
                     if mnuItem.tag == key {
