@@ -170,6 +170,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let mindvaultMenu = NSMenuItem(title: "Mindvault", action: nil, keyEquivalent: "")
         mindvaultMenu.submenu = NSMenu()
         mindvaultMenu.submenu?.addItem(NSMenuItem(title: "Reload", action: #selector(reloadAction(_:)), keyEquivalent: "r"))
+        mindvaultMenu.submenu?.addItem(NSMenuItem(title: "New items", action: #selector(newItemAction(_:)), keyEquivalent: "n"))
         mindvaultMenu.submenu?.addItem(NSMenuItem.separator())
         
         windowsMenu.submenu = NSMenu()
@@ -184,7 +185,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             windowItem.submenu = NSMenu()
             windowItem.submenu?.addItem(closeWindowItem)
             
-             windowsMenu.submenu?.addItem(windowItem)
+            windowsMenu.submenu?.addItem(windowItem)
             
         }
 
@@ -339,6 +340,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func reloadAction(_ sender: Any?) {
         loadVault()
+    }
+    
+    @objc func newItemAction(_ sender: Any?) {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+        let wc = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "NewItems")) as! NewVaultItemWindowController
+        wc.showWindow(self)
+        NSApp.activate(ignoringOtherApps: true)
+        
+        addWindowToMenu(title: "New items", wc: wc)
     }
 
     @objc func exitAction(_ sender: Any?) {

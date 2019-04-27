@@ -24,6 +24,13 @@ Feel free to adapt Mindvault to your personal needs</how>
           <why>It's good practice to log the changes between versions</why>
           <how>version	What has changed
               
+        Added "New items" window
+        Added size and position persitance
+        Added Mindvault view controller class to adhere to DRY principle.
+        NEW Added menu for open windows
+        Added pasteboard icon to menu
+        Added font size persistence
+        Fix for loading tableFile item
 1.0.0	Initial release to GitHub</how>
         </step>
         <step>
@@ -45,7 +52,15 @@ The next steps Show how to create/maintain vault items</how>
           <why>Mind vault reads the items from the file system at startup or reload.
           
           You'll have to know this location in order to add items to your vault</why>
-          <how>/Users/&lt;you&gt;/.mindvault</how>
+          <how>/Users/&lt;you&gt;/.mindvault
+              
+              I find it easy to have the following folder structure:
+              
+.mindvault
+  -  tables
+  -  how-to
+  
+This allows me tho seperate the contant of table and how-to files from the menu definitions</how>
         </step>
         <step>
           <tag>Structure</tag>
@@ -83,9 +98,17 @@ The next steps Show how to create/maintain vault items</how>
           <tag>The menu</tag>
           <what>mindvault's menu</what>
           <why>Shows you how the menu looks like</why>
-          <how>Alfabethical menu items for each item in your mind vault
+          <how>The menu of Mindvault is build from all entries found in your .mindvault folder. Note, a file can contain multiple definitions.
+              
+      &lt;Alfabethical menu items&gt;
+      About mindvault
       ------
-      Reload
+      Mindvault
+          Reload
+          New items
+          ------
+          Windows
+              &lt;All open mindvault windows&gt;
       Quit</how>
         </step>
         <step>
@@ -105,15 +128,15 @@ The next steps Show how to create/maintain vault items</how>
           <tag>Copy to pasteBoard</tag>
           <what>How to create an pasteBoard entry</what>
           <why>When you select the item, it's value
-      will be copied to the pasteBoard</why>
+      will be copied to the pasteBoard. The menu for these items show a clipboard to identify their operation.</why>
           <how>&lt;?xml version="1.0" encoding="utf-8"?&gt;
-      &lt;configuration&gt;
-        &lt;item&gt;
-          &lt;path&gt;&lt;/path&gt;
-          &lt;mode&gt;pasteBoard&lt;/mode&gt;
-          &lt;value&gt;Enter some value here&lt;/value&gt;
-        &lt;/item&gt;
-      &lt;/configuration&gt;</how>
+&lt;configuration&gt;
+  &lt;item&gt;
+    &lt;path&gt;&lt;/path&gt;
+    &lt;mode&gt;pasteBoard&lt;/mode&gt;
+    &lt;value&gt;Enter some value here&lt;/value&gt;
+  &lt;/item&gt;
+&lt;/configuration&gt;</how>
         </step>
         <step>
           <tag>Show dialog</tag>
@@ -121,13 +144,13 @@ The next steps Show how to create/maintain vault items</how>
           <why>When you select the item, it's value
       will be shown in a window</why>
           <how>&lt;?xml version="1.0" encoding="utf-8"?&gt;
-      &lt;configuration&gt;
-        &lt;item&gt;
-          &lt;path&gt;&lt;/path&gt;
-          &lt;mode&gt;dialog&lt;/mode&gt;
-          &lt;value&gt;Enter some value here&lt;/value&gt;
-        &lt;/item&gt;
-      &lt;/configuration&gt;</how>
+&lt;configuration&gt;
+  &lt;item&gt;
+    &lt;path&gt;&lt;/path&gt;
+    &lt;mode&gt;dialog&lt;/mode&gt;
+    &lt;value&gt;Enter some value here&lt;/value&gt;
+  &lt;/item&gt;
+&lt;/configuration&gt;</how>
         </step>
         <step>
           <tag>Show table</tag>
@@ -139,15 +162,15 @@ The next steps Show how to create/maintain vault items</how>
 
       For each row in the table you enter a tab delimited line in the value field
 
-      &lt;?xml version="1.0" encoding="utf-8"?&gt;
-      &lt;configuration&gt;
-        &lt;item&gt;
-          &lt;path&gt;&lt;/path&gt;
-          &lt;mode&gt;table&lt;/mode&gt;
-          &lt;header&gt;&lt;/header&gt;
-          &lt;value&gt;&lt;/value&gt;
-        &lt;/item&gt;
-      &lt;/configuration&gt;</how>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;configuration&gt;
+  &lt;item&gt;
+    &lt;path&gt;&lt;/path&gt;
+    &lt;mode&gt;table&lt;/mode&gt;
+    &lt;header&gt;&lt;/header&gt;
+    &lt;value&gt;&lt;/value&gt;
+  &lt;/item&gt;
+&lt;/configuration&gt;</how>
         </step>
         <step>
           <tag>Use table file</tag>
@@ -155,13 +178,13 @@ The next steps Show how to create/maintain vault items</how>
           <why>When you select the item, the file defined in the value
       will be shown in a table window</why>
           <how>&lt;?xml version="1.0" encoding="utf-8"?&gt;
-      &lt;configuration&gt;
-        &lt;item&gt;
-          &lt;path&gt;&lt;/path&gt;
-          &lt;mode&gt;tableFile&lt;/mode&gt;
-          &lt;value&gt;Enter a relative file and path here&lt;/value&gt;
-        &lt;/item&gt;
-      &lt;/configuration&gt;
+&lt;configuration&gt;
+  &lt;item&gt;
+    &lt;path&gt;&lt;/path&gt;
+    &lt;mode&gt;tableFile&lt;/mode&gt;
+    &lt;value&gt;Enter a relative file and path here&lt;/value&gt;
+  &lt;/item&gt;
+&lt;/configuration&gt;
 
       Note: the table file follows the convention of a table
       The advantage is that you can change its contents without reloading you mindvault</how>
@@ -170,22 +193,22 @@ The next steps Show how to create/maintain vault items</how>
           <tag>Show how to's</tag>
           <what>How to create an howto window entry</what>
           <why>When you select the item, it's value
-      will be shown in a howto window</why>
+      will be shown in a howto window, like this one.</why>
           <how>&lt;?xml version="1.0" encoding="utf-8"?&gt;
-      &lt;configuration&gt;
-        &lt;item&gt;
-          &lt;path&gt;&lt;/path&gt;
-          &lt;mode&gt;howto&lt;/mode&gt;
-          &lt;value&gt;
-            &lt;step&gt;
-              &lt;tag&lt;Enter small description tag&lt;/tag&gt;
-              &lt;what&lt;Enter what the step wants to achieve&lt;/what&gt;
-              &lt;why&gt;Enter the reason for this goal&lt;/why&gt;
-              &lt;how&gt;Enter how to do it&lt;/how&gt;
-            &lt;/step&gt;
-          &lt;/value&gt;
-        &lt;/item&gt;
-      &lt;/configuration&gt;</how>
+&lt;configuration&gt;
+  &lt;item&gt;
+    &lt;path&gt;&lt;/path&gt;
+    &lt;mode&gt;howto&lt;/mode&gt;
+    &lt;value&gt;
+      &lt;step&gt;
+        &lt;tag&lt;Enter small description tag&lt;/tag&gt;
+        &lt;what&lt;Enter what the step wants to achieve&lt;/what&gt;
+        &lt;why&gt;Enter the reason for this goal&lt;/why&gt;
+        &lt;how&gt;Enter how to do it&lt;/how&gt;
+      &lt;/step&gt;
+    &lt;/value&gt;
+  &lt;/item&gt;
+&lt;/configuration&gt;</how>
         </step>
         <step>
           <tag>Use howto file</tag>
@@ -193,33 +216,33 @@ The next steps Show how to create/maintain vault items</how>
           <why>When you select the item, the file defined in the value
       will be shown in a howto window</why>
           <how>&lt;?xml version="1.0" encoding="utf-8"?&gt;
-      &lt;configuration&gt;
-        &lt;item&gt;
-          &lt;path&gt;&lt;/path&gt;
-          &lt;mode&gt;howtoFile&lt;/mode&gt;
-          &lt;value&gt;Enter a relative file and path here&lt;/value&gt;
-        &lt;/item&gt;
-      &lt;/configuration&gt;
+&lt;configuration&gt;
+  &lt;item&gt;
+    &lt;path&gt;&lt;/path&gt;
+    &lt;mode&gt;howtoFile&lt;/mode&gt;
+    &lt;value&gt;Enter a relative file and path here&lt;/value&gt;
+  &lt;/item&gt;
+&lt;/configuration&gt;
 
       Note: the structure of the howto file is a bit differen (see below)
       The advantage is that you can change its contents without reloading you mindvault
 
-      &lt;?xml version="1.0" encoding="utf-8"?&gt;
-      &lt;configuration&gt;
-        &lt;meta&gt;
-          &lt;item&gt;
-            &lt;path&gt;&lt;/path&gt;
-            &lt;mode&gt;howto&lt;/mode&gt;
-            &lt;value&gt;&lt;/value&gt;
-          &lt;/item&gt;
-        &lt;/meta&gt;
-        &lt;step&gt;
-          &lt;tag&lt;Enter small description tag&lt;/tag&gt;
-          &lt;what&lt;Enter what the step wants to achieve&lt;/what&gt;
-          &lt;why&gt;Enter the reason for this goal&lt;/why&gt;
-          &lt;how&gt;Enter how to do it&lt;/how&gt;
-        &lt;/step&gt;
-      &lt;/configuration&gt;</how>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;configuration&gt;
+  &lt;meta&gt;
+    &lt;item&gt;
+      &lt;path&gt;&lt;/path&gt;
+      &lt;mode&gt;howto&lt;/mode&gt;
+      &lt;value&gt;&lt;/value&gt;
+    &lt;/item&gt;
+  &lt;/meta&gt;
+  &lt;step&gt;
+    &lt;tag&lt;Enter small description tag&lt;/tag&gt;
+    &lt;what&lt;Enter what the step wants to achieve&lt;/what&gt;
+    &lt;why&gt;Enter the reason for this goal&lt;/why&gt;
+    &lt;how&gt;Enter how to do it&lt;/how&gt;
+  &lt;/step&gt;
+&lt;/configuration&gt;</how>
         </step>
         <step>
           <tag></tag>

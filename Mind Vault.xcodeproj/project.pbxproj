@@ -15,7 +15,9 @@
 		F145B166202597230050A05A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F145B164202597230050A05A /* Main.storyboard */; };
 		F1521C6520EF99E500BA507E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1521C6420EF99E500BA507E /* Cocoa.framework */; };
 		F159E6122046DFD8002EE675 /* VaultTextWindowControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F159E6112046DFD8002EE675 /* VaultTextWindowControler.swift */; };
-		F1C0A99A22607F700074879C /* MvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C0A99922607F700074879C /* MvViewController.swift */; };
+		F1AEE3C4227450E000E14BE7 /* NewVaultItemWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEE3C3227450E000E14BE7 /* NewVaultItemWindowController.swift */; };
+		F1AEE3C62274511200E14BE7 /* NewVaultItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEE3C52274511200E14BE7 /* NewVaultItemViewController.swift */; };
+		F1AEE3C8227454E900E14BE7 /* MvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEE3C7227454E900E14BE7 /* MvViewController.swift */; };
 		F1CC2EE6205BBB5C004BF974 /* VaultHowtoWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CC2EE5205BBB5C004BF974 /* VaultHowtoWindowController.swift */; };
 		F1CC2EE8205BBFE9004BF974 /* VaultHowtoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CC2EE7205BBFE9004BF974 /* VaultHowtoViewController.swift */; };
 		F1CC2EEA205BE3A3004BF974 /* HowtoStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CC2EE9205BE3A3004BF974 /* HowtoStep.swift */; };
@@ -49,7 +51,9 @@
 		F1521C5C20EF903000BA507E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1521C6420EF99E500BA507E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F159E6112046DFD8002EE675 /* VaultTextWindowControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultTextWindowControler.swift; sourceTree = "<group>"; };
-		F1C0A99922607F700074879C /* MvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MvViewController.swift; sourceTree = "<group>"; };
+		F1AEE3C3227450E000E14BE7 /* NewVaultItemWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVaultItemWindowController.swift; sourceTree = "<group>"; };
+		F1AEE3C52274511200E14BE7 /* NewVaultItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVaultItemViewController.swift; sourceTree = "<group>"; };
+		F1AEE3C7227454E900E14BE7 /* MvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MvViewController.swift; sourceTree = "<group>"; };
 		F1CC2EE5205BBB5C004BF974 /* VaultHowtoWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultHowtoWindowController.swift; sourceTree = "<group>"; };
 		F1CC2EE7205BBFE9004BF974 /* VaultHowtoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultHowtoViewController.swift; sourceTree = "<group>"; };
 		F1CC2EE9205BE3A3004BF974 /* HowtoStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowtoStep.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 		F145B15D202597230050A05A /* Mind Vault */ = {
 			isa = PBXGroup;
 			children = (
+				F1AEE3C7227454E900E14BE7 /* MvViewController.swift */,
 				F13ED0532126FA41007AA9BB /* howto-use-mindvault.xml */,
 				F145B15E202597230050A05A /* AppDelegate.swift */,
 				F1056E7F2272E8A300AD1095 /* PersistenceDomain.swift */,
@@ -106,7 +111,8 @@
 				F145B164202597230050A05A /* Main.storyboard */,
 				F145B167202597230050A05A /* Info.plist */,
 				F145B168202597230050A05A /* Mind_Vault.entitlements */,
-				F1C0A99922607F700074879C /* MvViewController.swift */,
+				F1AEE3C3227450E000E14BE7 /* NewVaultItemWindowController.swift */,
+				F1AEE3C52274511200E14BE7 /* NewVaultItemViewController.swift */,
 			);
 			path = "Mind Vault";
 			sourceTree = "<group>";
@@ -193,13 +199,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1CC2EE6205BBB5C004BF974 /* VaultHowtoWindowController.swift in Sources */,
-				F1C0A99A22607F700074879C /* MvViewController.swift in Sources */,
 				F1D2FA382049A0CA001CAF6E /* VaultTableViewController.swift in Sources */,
+				F1AEE3C4227450E000E14BE7 /* NewVaultItemWindowController.swift in Sources */,
 				F1D2FA312049902E001CAF6E /* VaultTextViewController.swift in Sources */,
 				F10587DD20371335009EBDA8 /* VaultItem.swift in Sources */,
+				F1AEE3C62274511200E14BE7 /* NewVaultItemViewController.swift in Sources */,
 				F159E6122046DFD8002EE675 /* VaultTextWindowControler.swift in Sources */,
 				F1CC2EE8205BBFE9004BF974 /* VaultHowtoViewController.swift in Sources */,
 				F1056E802272E8A300AD1095 /* PersistenceDomain.swift in Sources */,
+				F1AEE3C8227454E900E14BE7 /* MvViewController.swift in Sources */,
 				F1CC2EEA205BE3A3004BF974 /* HowtoStep.swift in Sources */,
 				F145B15F202597230050A05A /* AppDelegate.swift in Sources */,
 				F1D2FA3C2049A29A001CAF6E /* VaultTableWindowController.swift in Sources */,

@@ -21,6 +21,116 @@ class VaultItem: NSObject {
     
     enum eVaultMode { case none, pasteBoard, dialog, table, tableFile, howto, howtoFile, pictureFile }
     
+    static let itemDefinitions: [Int:String] = [
+0:"""
+  <item>
+    <path></path>
+    <mode>pasteBoard</mode>
+    <value></value>
+  </item>
+
+""",
+1:"""
+  <item>
+    <path></path>
+    <mode>dialog</mode>
+    <value></value>
+  </item>
+
+""",
+2:"""
+  <item>
+    <path></path>
+    <mode>table</mode>
+    <header>Header-1\tHeader-2</header>
+    <value>Row-1,Column-1\tRow-1,Column-2
+Row-2,Column-1\tRow-2,Column-2</value>
+  </item>
+
+""",
+3:"""
+  <step>
+    <tag></tag>
+    <what></what>
+    <why></why>
+    <how></how>
+  </step>
+
+""",
+4:"""
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <item>
+    <path/path>
+    <mode>tableFile</mode>
+    <value>tables/table-file.xml</value>
+  </item>
+</configuration>
+
+""",
+5:"""
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <item>
+    <path></path>
+    <mode>howtoFile</mode>
+    <value>howto/howto-file.xml</value>
+  </item>
+</configuration>
+
+""",
+6:"""
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <item>
+    <path></path>
+    <mode>pasteBoard</mode>
+    <value></value>
+  </item>
+</configuration>
+
+""",
+7:"""
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <item>
+    <path></path>
+    <mode>dialog</mode>
+    <value></value>
+  </item>
+</configuration>
+
+""",
+8:"""
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <header>Header-1\tHeader-2</header>
+  <type>string\tstring</type>
+  <value>Row-1,Column-1\tRow-1,Column-2
+Row-2,Column-1\tRow-2,Column-2</value>
+</data>
+
+""",
+9:"""
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <meta>
+    <item>
+      <path></path>
+      <mode>howto</mode>
+      <value></value>
+    </item>
+  </meta>
+  <step>
+    <tag></tag>
+    <what></what>
+    <why></why>
+    <how></how>
+  </step>
+</configuration>
+
+"""]
+
     override init() {
         filePath = NSHomeDirectory() + "/.mindvault/"
     }
@@ -227,6 +337,5 @@ class VaultItem: NSObject {
             NSLog("Problem loading embedded resource: %@", error.localizedDescription)
         }
     }
-    
     
 }

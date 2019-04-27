@@ -744,6 +744,234 @@
             </objects>
             <point key="canvasLocation" x="-1683" y="1526"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="vA5-I8-2R6">
+            <objects>
+                <windowController storyboardIdentifier="NewItems" id="1LX-D3-zVa" customClass="NewVaultItemWindowController" customModule="Mind_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="jzz-tQ-acj">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="425" y="461" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+                        <connections>
+                            <outlet property="delegate" destination="1LX-D3-zVa" id="mAh-3D-kn4"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="Y8W-fX-9Ne" kind="relationship" relationship="window.shadowedContentViewController" id="CZW-hU-pB9"/>
+                    </connections>
+                </windowController>
+                <customObject id="fpL-dP-CGb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1687" y="1955"/>
+        </scene>
+        <!--New Vault Item View Controller-->
+        <scene sceneID="d0r-8N-5pm">
+            <objects>
+                <viewController id="Y8W-fX-9Ne" customClass="NewVaultItemViewController" customModule="Mind_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="MyM-mU-lUX">
+                        <rect key="frame" x="0.0" y="0.0" width="519" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SgU-Vo-HYA">
+                                <rect key="frame" x="-8" y="-10" width="535" height="286"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <tabViewItems>
+                                    <tabViewItem label="Structure" identifier="" id="xJI-dW-xNZ">
+                                        <view key="view" ambiguous="YES" id="Ffo-rB-SyX">
+                                            <rect key="frame" x="10" y="33" width="515" height="240"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fde-T6-sZa">
+                                                    <rect key="frame" x="11" y="149" width="132" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Pastboard item" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="V1e-6z-LZZ">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="Pasteboard_clicked:" target="Y8W-fX-9Ne" id="kAV-D0-dj9"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9pq-uF-hmY">
+                                                    <rect key="frame" x="11" y="83" width="132" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Table item" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xnk-Cn-gb1">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="Table_clicked:" target="Y8W-fX-9Ne" id="2Nr-nj-vqR"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0cO-Hv-fDh">
+                                                    <rect key="frame" x="11" y="116" width="132" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Text item" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5ZW-cI-Npg">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="Text_clicked:" target="Y8W-fX-9Ne" id="SWP-1C-cKc"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="665-8h-Xat">
+                                                    <rect key="frame" x="11" y="50" width="132" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Howto item" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hNj-Ks-om1">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="Howto_clicked:" target="Y8W-fX-9Ne" id="RRs-38-m6Q"/>
+                                                    </connections>
+                                                </button>
+                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ey-gJ-vCb">
+                                                    <rect key="frame" x="15" y="179" width="485" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" selectable="YES" title="Press one of the buttons to copy the Vaultitem structure to the Pasteboard" id="gdj-4Z-tq4">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g7Z-St-RIN">
+                                                    <rect key="frame" x="154" y="83" width="132" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Table-File item" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8kC-Gn-FcL">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="TableFileItem_clicked:" target="Y8W-fX-9Ne" id="N7c-Vv-9nF"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ziM-1D-etv">
+                                                    <rect key="frame" x="154" y="50" width="132" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Howto-File item" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UFW-LS-VJD">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="HowtoFileItem_clicked:" target="Y8W-fX-9Ne" id="zRQ-1k-IIH"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="88y-o1-PrC">
+                                                    <rect key="frame" x="295" y="83" width="132" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Table file" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YDs-ei-wa8">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="TableFile_clicked:" target="Y8W-fX-9Ne" id="oKm-sy-JUJ"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNd-d9-RVb">
+                                                    <rect key="frame" x="295" y="50" width="132" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Howto item" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AT2-lF-HKZ">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="HowtoFile_clicked:" target="Y8W-fX-9Ne" id="yal-1m-IpK"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNa-AR-aJg">
+                                                    <rect key="frame" x="295" y="149" width="132" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Pastboard file" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EPC-zz-KF2">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="PastboardFile_clicked:" target="Y8W-fX-9Ne" id="l3D-Qr-dQJ"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uaJ-5k-B00">
+                                                    <rect key="frame" x="295" y="116" width="132" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Text file" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="W5c-fL-bu4">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="TextFile_clicked:" target="Y8W-fX-9Ne" id="mt3-aK-1O1"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                    </tabViewItem>
+                                    <tabViewItem label="Wizard" identifier="" id="lLs-wl-rYi">
+                                        <view key="view" id="XxZ-96-Dtz">
+                                            <rect key="frame" x="10" y="33" width="515" height="240"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhf-u3-K78">
+                                                    <rect key="frame" x="450" y="5" width="48" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="lastButton" imagePosition="left" alignment="right" imageScaling="proportionallyUpOrDown" inset="2" id="9Un-5S-gps">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="LastClicked:" target="QNP-zj-CWM" id="bee-lA-XGe"/>
+                                                    </connections>
+                                                </button>
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gbn-Qm-5T5">
+                                                    <rect key="frame" x="7" y="5" width="48" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="firstButton" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="szF-YO-zd1">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="FirstClicked:" target="QNP-zj-CWM" id="dqD-Sp-aiJ"/>
+                                                    </connections>
+                                                </button>
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s3D-1I-e4i">
+                                                    <rect key="frame" x="401" y="5" width="48" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="nextButton" imagePosition="left" alignment="right" imageScaling="proportionallyUpOrDown" inset="2" id="XOB-vv-SRu">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="NextClicked:" target="QNP-zj-CWM" id="b1S-Xh-bxj"/>
+                                                    </connections>
+                                                </button>
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQ9-6h-raF">
+                                                    <rect key="frame" x="54" y="5" width="48" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="previousButton" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="swq-Ca-ArO">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="PreviousClicked:" target="QNP-zj-CWM" id="n7v-ZL-jCP"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                    </tabViewItem>
+                                </tabViewItems>
+                            </tabView>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="Howto_clicked" destination="665-8h-Xat" id="gHZ-Ex-fEh"/>
+                        <outlet property="Pastboard_clicked" destination="fde-T6-sZa" id="l2S-UT-6oy"/>
+                        <outlet property="Table_clicked" destination="9pq-uF-hmY" id="0SJ-Zb-cK6"/>
+                        <outlet property="Text_clicked" destination="0cO-Hv-fDh" id="hyn-Bd-K1n"/>
+                    </connections>
+                </viewController>
+                <customObject id="NLI-id-fzJ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-960.5" y="1930"/>
+        </scene>
         <!--Vault Howto View Controller-->
         <scene sceneID="2En-YR-peO">
             <objects>
